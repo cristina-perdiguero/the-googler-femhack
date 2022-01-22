@@ -1,0 +1,7 @@
+@use '../../../../../styles.scss'; 
+
+.close{
+    background-color: transparent;
+    border: none;
+    color: styles.$principal-color;
+}

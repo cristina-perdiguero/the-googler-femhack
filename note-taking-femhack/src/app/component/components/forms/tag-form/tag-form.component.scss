@@ -1,0 +1,8 @@
+@use '../../.././../../styles.scss';
+
+form{
+    flex-direction: row;
+    >*{
+        margin: 0 1em;
+    }
+}

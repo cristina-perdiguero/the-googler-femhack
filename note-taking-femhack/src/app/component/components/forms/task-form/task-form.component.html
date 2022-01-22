@@ -1,0 +1,13 @@
+<div class="modal">
+    <div>
+        <button class="close" (click)="closeModal()"><i class="fas fa-times"></i></button>
+        <form action="GET" [formGroup]="taskForm" (submit)="saveTask()">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="Enter the task title" formControlName="title" >
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" placeholder="Enter the task description" formControlName="description">
+            <input type="submit" value="Save" [disabled]="taskForm.invalid">
+        </form>
+    </div>
+    
+</div>

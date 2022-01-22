@@ -1,0 +1,42 @@
+<main>
+    <div  class="header">
+        <div>   
+            <h1> Hi {{name}}! </h1>
+            <h2>These are your daily tasks</h2>
+        </div>
+        <button class="cta" (click)="logOutUser()">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+    </div>
+    <div class="dashboard">
+        <div *ngIf="taskService.taskList.length === 0">
+            <p>
+                You don't have any saved tasks yet.
+                <br>
+                let's add some new task
+            </p>
+            <button class="cta" (click)="showTaskForm = true">
+                Add task
+            </button>
+        </div>
+        <ul *ngIf="taskService.taskList.length > 0">
+            <li *ngFor="let task of taskService.taskList, let i = index">
+                <p>{{task.title}} : </p>
+                <p>{{task.description}}</p>
+                <button (click)="taskService.deleteTask(i)" ><i class="fas fa-trash-alt"></i></button>
+                <button (click)="showUpdateTask(i)"><i class="fas fa-pencil-alt"></i></button>
+                <app-tag-form [tagId]="i"></app-tag-form>
+                <ul *ngIf="task.tag_list.length > 0" class="tag-list">
+                    <li *ngFor="let tag of task.tag_list" >{{tag}}</li>
+                </ul>
+            </li>
+            <li>
+                <button class="cta" (click)="showTaskForm = true">
+                    Add task
+                </button>
+            </li>
+        </ul>
+        
+        <app-task-form [updateTask]="updateTask" (emitClose)="closeTaskForm()" *ngIf="showTaskForm "></app-task-form>
+    </div>
+</main>

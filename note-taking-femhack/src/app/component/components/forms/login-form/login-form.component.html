@@ -1,0 +1,9 @@
+<form action="POST" [formGroup]="loginForm" (submit)="loginUser()">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Enter your email" formControlName="email">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Enter your password" formControlName="password">
+    <p class="alert" *ngIf="showLoginAlert">The username or password is not correct</p>
+    <input type="submit" value="Login" [disabled] = "loginForm.invalid">
+</form>
+

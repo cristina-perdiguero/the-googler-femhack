@@ -1,0 +1,16 @@
+<form action="POST" [formGroup]="signupForm" (submit)="signUpUser()">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Enter your name" formControlName="name">
+    <label for="surname">Surname</label>
+    <input type="text" name="surname" id="surname" placeholder="Enter your surname" formControlName="surname">
+    <label for="phone">Phone</label>
+    <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" formControlName="phone">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Enter your email" formControlName="email">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Enter your password" formControlName="password">
+    <label for="confirm-password">Confirm password</label>
+    <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password" formControlName="confirm_password">
+    <p class="alert" *ngIf="showPasswordAlert">Your password and password confirmation do not match</p>
+    <input type="submit" value="Signup" [disabled] = "signupForm.invalid" >
+</form>

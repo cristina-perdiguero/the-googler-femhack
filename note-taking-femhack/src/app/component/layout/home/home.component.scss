@@ -1,0 +1,61 @@
+@use '../../../../styles.scss'; 
+
+main{
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: styles.$principal-color;
+        color: white;
+        h2{
+            color: inherit;
+        }
+
+        button{
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 1em;
+            height: fit-content;
+        }
+    }
+    .dashboard{
+        flex-grow: 1;
+        display: flex;
+        div{
+            margin: auto;
+            min-height: 10em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            >p{
+                margin: auto;
+                text-align: center;
+                font-size: 2em;
+            }
+        }
+        ul{
+            width: 100%;
+            li{
+                display: flex;
+                position: relative;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5em;
+                p{
+                    margin: 0 1em;
+                }
+                button:not(.cta){
+                    background-color: transparent;
+                    border: none;
+                    color: styles.$principal-color;
+                }
+                .tag-list{
+                    max-width: 10em;
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}

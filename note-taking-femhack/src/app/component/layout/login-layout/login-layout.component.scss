@@ -1,0 +1,23 @@
+@use '../../../../styles.scss'; 
+
+main{
+    display: flex;
+    flex-direction: column;
+    >div{
+        display: flex;
+        flex-direction: column;
+        >*{
+            margin: auto;
+        }
+    }
+
+}
+
+@media (min-width: 768px) {
+    main{
+        flex-direction: row;
+        >div{
+            width: 50%;
+        }
+    }
+}

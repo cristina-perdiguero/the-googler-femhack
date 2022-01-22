@@ -1,0 +1,28 @@
+<main>
+    <div class="header">
+        <div>
+            <h1><span>The best</span> way to manage your task</h1>
+            <h2>Enter now and organize your daily tasks</h2>
+        </div>
+    </div>
+    <div>
+        <div>
+            <ul class="tabs">
+                <li>
+                    <button [ngClass]="viewComponent === 'login' ? 'active' : ''" (click)="changeViewComponent('login')">Login</button>
+                </li>
+                <li>
+                    <button [ngClass]="viewComponent === 'signup' ? 'active' : ''" (click)="changeViewComponent('signup')">Signup</button>
+                </li>
+            </ul>
+            <div *ngIf="signUpOk">
+                <p>
+                    You have successfully registered. Enter our platform and start enjoying our services
+                </p>
+            </div>
+            <app-login-form *ngIf="viewComponent === 'login'" (emitSuccess)="loginSuccess()"></app-login-form>
+            <app-signup-form *ngIf="viewComponent === 'signup'" (emitSuccess)="signupSuccess()"></app-signup-form>
+        </div>
+    </div>
+</main>
+

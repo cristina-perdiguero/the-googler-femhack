@@ -1,0 +1,113 @@
+$principal-color: #ff5a65;
+$principal-lighter-color: #fcf1f0; 
+$neutral-lighter-color : #636363;
+$neutral-dark-color : #0f0001;
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: $neutral-dark-color;
+    main{
+        min-height: calc( 100vh - 2em);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        >*{
+            padding: 2em;
+        }
+    }
+    h1, h2, h3, p{
+        margin: 0;
+        span{
+            color: $principal-color;
+        }
+    }
+    h2{
+        color: $neutral-lighter-color;
+        font-weight: normal;
+        font-size: 1.5em;
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    ul.tabs{
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid $principal-color;
+        >*{
+            margin: 0.5em 1em;
+        }
+        button{
+            border: none;
+            background-color: transparent;
+            text-transform: uppercase;
+        }
+        button.active{
+            color: $principal-color;
+        }
+       
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        min-width: 25em;
+        >* {
+            margin: 0.5em 0;
+        }
+        input:not( input[type = "submit"] ){
+            border-radius: 5px;
+            border: 1px solid $principal-color;
+            padding: 0.5em;
+        }
+        
+    }
+    button, input[type = 'submit']{
+        cursor: pointer;
+        padding: 1em;
+        border-radius: 10px;
+    }
+    input[type = 'submit'], button.cta{
+        background-color: $principal-color;
+        color: white;
+        border: none;
+    }
+    input[type = 'submit']:disabled{
+        background-color: $principal-lighter-color;
+        color: $neutral-lighter-color;
+    }
+    .alert{
+        opacity: 0;
+        animation: showAlert 0.5s linear forwards;
+        color: $principal-color;
+    }
+    .modal{
+        position: absolute;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparentize($neutral-dark-color , 0.8);
+        >*{
+            margin: auto;
+            background-color: white;
+            padding: 2em;
+            display: flex;
+            flex-direction: column;
+        }
+        .close{
+            align-self: flex-end;
+        }
+    }
+}
+@keyframes showAlert {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
